@@ -1,0 +1,93 @@
+<!--<!DOCTYPE html>-->
+<!--<html lang="en">-->
+<!--<head>-->
+    <!--<meta charset="UTF-8">-->
+    <!--<title>Title</title>-->
+<!--</head>-->
+<!--<body>-->
+<!--<form action="/add_book"  method="post">-->
+    <!--{{form.csrf_token}}-->
+
+    <!--{{form.bookname.label}}-->
+    <!--{{form.bookname}}-->
+
+    <!--{{form.authorname.label}}-->
+    <!--{{form.authorname}}-->
+
+    <!--{{form.submit}}-->
+
+    <!--{% for message in get_flashed_messages()%}-->
+        <!--<h4 style="color:red"> {{message}}</h4>-->
+    <!--{%endfor%}-->
+
+
+
+<!--</form>-->
+
+
+<!--<form action="">-->
+    <!--<ul>-->
+        <!--{% for author in authors%}-->
+        <!--<li>{{author.name}}<a href="url_for("delete_author,id=author_id")">删除</a></li>-->
+
+     <!--<ul>-->
+        <!--{% for book in author.books%}-->
+        <!--<li>{{book.name}}<a href="url_for("delete_book,id=book_id")">删除</a></li>-->
+         <!--{%endfor%}-->
+    <!--</ul>-->
+    <!--{% endfor %}-->
+    <!--</ul>-->
+<!--</form>-->
+<!--</body>-->
+<!--</html>-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<form action="/add_book" method="post">
+
+    {{ form.csrf_token }}
+
+    {{ form.bookname.label }}:&nbsp;&nbsp;
+    {{ form.bookname }}<br>
+
+    {{ form.authorname.label }}:&nbsp;&nbsp;
+    {{ form.authorname }}<br>
+
+    {{ form.submit }}
+
+    {% for message in get_flashed_messages() %}
+        <h4 style="color: red">{{ message }}</h4>
+    {% endfor %}
+
+
+</form>
+
+<form action="">
+
+    <ul>
+        {% for author in authors %}
+            <li>{{ author.name }} <a href="{{ url_for('delete_author',id=author.id) }}">删除</a></li>
+            <ul>
+                {% for book in author.books %}
+                    <li>{{ book.name }} <a href="{{ url_for('delete_book',id=book.id) }}">删除</a></li>
+                {% endfor %}
+
+            </ul>
+
+        {% endfor %}
+，
+
+    </ul>
+
+
+</form>
+
+
+</body>
+</html>

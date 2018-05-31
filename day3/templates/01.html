@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<p>{{request.url}}</p>
+<p>{{session.name}}</p>
+<P>{{config.SECRET_KEY}}</P>
+<P>{{url_for("index2",id=10)}}</P>
+
+{% for message in get_flashed_messages()%}
+{{message}}
+{% endfor%}
+
+</body>
+</html>
